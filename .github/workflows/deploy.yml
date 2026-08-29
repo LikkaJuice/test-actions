@@ -48,4 +48,5 @@ jobs:
           script: |
             docker pull ${{ env.IMAGE_REPO }}:latest
             docker rm -f test-actions || true
+            docker ps -q --filter publish=8000 | xargs -r docker rm -f
             docker run -d --name test-actions --restart unless-stopped -p 8000:8000 ${{ env.IMAGE_REPO }}:latest
