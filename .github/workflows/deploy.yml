@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 env:
-  IMAGE_REPO: ghcr.io/${{ github.repository }}
+  IMAGE_REPO: ghcr.io/likkajuice/test-actions
 
 jobs:
   build-and-push:
