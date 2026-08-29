@@ -21,3 +21,15 @@ def server_time() -> JSONResponse:
             "timezone": str(now.astimezone().tzinfo or "unknown"),
         }
     )
+
+
+@app.get("/datetime")
+def server_datetime() -> JSONResponse:
+    now = datetime.now()
+    return JSONResponse(
+        {
+            "utc": now.astimezone(timezone.utc).isoformat(),
+            "local": now.astimezone().isoformat(),
+            "timezone": str(now.astimezone().tzinfo or "unknown"),
+        }
+    )
